@@ -95,14 +95,19 @@ class Tableau1 extends Phaser.Scene{
          * Arbre
          * @type {Phaser.GameObjects.Image}
          */
-        let tree1=this.add.image(300,350, 'gTree2').setOrigin(0,1);
-        tree1.setTintFill(0xFF0000); // pratique pour dbugger
+        let tree1=this.add.image(240,390, 'gTree2').setOrigin(0,1);
+        /**tree1.setTintFill(0xFF0000); // pratique pour dbugger*/
         this.groundContainer.add(tree1);
+        tree1.angle=0
+        tree1.scaleX=0.7
+        tree1.scaleY=0.7
 
-        let tree2=this.add.image(150,350, 'gTree2').setOrigin(0,1);
-        tree2.setTintFill(0xFF0000); // pratique pour dbugger
+        let tree2=this.add.image(150,440, 'gTree2').setOrigin(0,1);
+        /**tree2.setTintFill(0xFF0000); // pratique pour dbugger*/
         this.groundContainer.add(tree2);
         tree2.angle=-1
+        tree2.scaleX=-0.9
+        tree2.scaleY=1
         /**
          * Terrain 1
          * @type {Phaser.GameObjects.Image}
