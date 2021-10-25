@@ -6,7 +6,7 @@ class Tableau1 extends Phaser.Scene{
     /**
      * Précharge les assets
      */
-    preload(){
+    preload() {
         //bg 2 (tout au fond et très flou)
         this.load.image('bg2-terrain-2', 'assets/level/background-2/bg2-terrain-2.png');
         this.load.image('bg2-tree-2', 'assets/level/background-2/bg2-tree-2.png');
@@ -17,24 +17,24 @@ class Tableau1 extends Phaser.Scene{
         //ground (premier plan noir)
         this.load.image('gMid', 'assets/level/ground/g-mid.png');
         this.load.image('gRight', 'assets/level/ground/g-right.png');
-        this.load.image('gTree1', 'assets/level/ground/g-tree-1.png');
+        this.load.image('gTree2', 'assets/level/ground/g-tree-2.png');
 
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
-        for(let i=1;i<=5;i++){
-            this.load.image('g-grass-'+i, 'assets/level/ground/g-grass-'+i+'.png');
+        for (let i = 1; i <= 5; i++) {
+            this.load.image('g-grass-' + i, 'assets/level/ground/g-grass-' + i + '.png');
         }
 
         //filtre film TODO élève : faire une boucle à la place des 3 lignes qui suivent FAIT
-        for(let i=1;i<=3;i++){
-        this.load.image('filterFilm'+i, 'assets/level/filters/film/frame-'+i+'.png');
+        for (let i = 1; i <= 3; i++) {
+            this.load.image('filterFilm' + i, 'assets/level/filters/film/frame-' + i + '.png');
         }
 
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple FAIT
-        for(let i=1;i<=3;i++){
-        this.load.image('bg-animation-'+i, 'assets/level/background-2/bg-animation/bg-animation-'+i+'.png');
+        for (let i = 1; i <= 3; i++) {
+            this.load.image('bg-animation-' + i, 'assets/level/background-2/bg-animation/bg-animation-' + i + '.png');
         }
-
+    }
     /**
      * Crée la scène
      * TODO élèves : reproduire à l'identique assets/level/00-preview-example/sample1.jpg
@@ -46,7 +46,7 @@ class Tableau1 extends Phaser.Scene{
          * Fond très clair avec une trame
          * @type {Phaser.GameObjects.Sprite}
          */
-        let bgAnimationA=this.add.sprite(0,0, 'bg-animation-1').setOrigin(0,0);
+        let bgAnimation1=this.add.sprite(0,0, 'bg-animation-1').setOrigin(0,0);
 
         //--------------background 2 (tout au fond et flou)--------------------
 
@@ -95,9 +95,14 @@ class Tableau1 extends Phaser.Scene{
          * Arbre
          * @type {Phaser.GameObjects.Image}
          */
-        let tree1=this.add.image(300,350, 'gTree1').setOrigin(0,1);
+        let tree1=this.add.image(300,350, 'gTree2').setOrigin(0,1);
         tree1.setTintFill(0xFF0000); // pratique pour dbugger
         this.groundContainer.add(tree1);
+
+        let tree2=this.add.image(150,350, 'gTree2').setOrigin(0,1);
+        tree2.setTintFill(0xFF0000); // pratique pour dbugger
+        this.groundContainer.add(tree2);
+        tree2.angle=-1
         /**
          * Terrain 1
          * @type {Phaser.GameObjects.Image}
@@ -147,7 +152,7 @@ class Tableau1 extends Phaser.Scene{
         });
         this.filterFilm.play('film');
 
-        //TODO élève faire une animation du même genre que filter mais pour bgAnimationA
+        //TODO élève faire une animation du même genre que filter mais pour bgAnimation1
 
         //gestion du parallaxe
         /**
@@ -160,12 +165,13 @@ class Tableau1 extends Phaser.Scene{
         // Définit l'espace de déplacement de la caméra
         this.cameras.main.setBounds(0, 0, 2000, 540);
         //définit à quelles vitesse se déplacent nos différents plans
-        bgAnimationA.scrollFactorX=0;
+        bgAnimation1.scrollFactorX=0;
         this.filterFilm.scrollFactorX=0;
         this.bg2Container.scrollFactorX=0.2;
         this.bg1Container.scrollFactorX=0.4;
         this.groundContainer.scrollFactorX=1;
     }
+
     /**
      * Définit ce qui se passe quand on appuie ou relache une touche du clavier
      * ALGO : ceci est une fonction ou méthode
