@@ -36,7 +36,11 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gstone5', 'assets/level/ground/g-stone-5.png');
         this.load.image('gfellentree1', 'assets/level/ground/g-fellen-tree-1.png');
         this.load.image('gspike1', 'assets/level/ground/g-spike-1.png');
+        this.load.image('vina', 'assets/level/ground/g-vine-a.png');
 
+        this.load.image('z6','assets/zombies/z6.png');
+        this.load.image('z9','assets/zombies/z9.png');
+        this.load.image('z11','assets/zombies/z11.png');
 
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
@@ -325,9 +329,32 @@ class Tableau1 extends Phaser.Scene{
         spike2.scaleX=1
         spike2.scaleY=1
 
-        
+        let z6=this.add.image(1160,370, 'z6').setOrigin(0,1);
+        this.groundContainer.add(z6);
+        z6.angle=10
+        z6.scale=0.7
 
+        let z9=this.add.image(650,360, 'z9').setOrigin(0,1);
+        this.groundContainer.add(z9);
+        z9.scale=1
 
+        let z11=this.add.image(1980,425, 'z11').setOrigin(0,1);
+        this.groundContainer.add(z11);
+        z11.scale=1
+
+        let vine1=this.add.image(580,25, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine1);
+        vine1.scale=0.6
+
+        let vine2=this.add.image(582,50, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine2);
+        vine2.angle=-5
+        vine2.scale=0.6
+
+        let vine3=this.add.image(582,75, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine3);
+        vine3.angle=0
+        vine3.scale=0.6
 
         /**
          * Terrain 1
@@ -451,10 +478,10 @@ class Tableau1 extends Phaser.Scene{
             switch (kevent.keyCode)
             {
                 case Phaser.Input.Keyboard.KeyCodes.RIGHT:
-                    me.speed=6;
+                    me.speed=4;
                     break;
                 case Phaser.Input.Keyboard.KeyCodes.LEFT:
-                    me.speed=-6;
+                    me.speed=-4;
                     break;
             }
         });
