@@ -10,11 +10,16 @@ class Tableau1 extends Phaser.Scene{
         //bg 2 (tout au fond et très flou)
         this.load.image('bg2-terrain-2', 'assets/level/background-2/bg2-terrain-2.png');
         this.load.image('bg2-tree-2', 'assets/level/background-2/bg2-tree-2.png');
+        this.load.image('bg2-terrain-4', 'assets/level/background-2/bg2-terrain-4.png');
 
         //bg 1 (gris légèrement flou)
         this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
+        this.load.image('bg1-terrain-1', 'assets/level/background-1/bg-terrain-1.png');
+        this.load.image('bg1-terrain-4', 'assets/level/background-1/bg-terrain-4.png');
         this.load.image('bg1-tree-3', 'assets/level/background-1/bg-tree-3.png');
         this.load.image('bg1-tree-1', 'assets/level/background-1/bg-tree-1.png');
+        this.load.image('bg1-tree-2', 'assets/level/background-1/bg-tree-2.png');
+        this.load.image('bg1-wb', 'assets/level/background-1/bg-wooden-bridge.png');
 
         //ground (premier plan noir)
         this.load.image('gMid', 'assets/level/ground/g-mid.png');
@@ -42,6 +47,10 @@ class Tableau1 extends Phaser.Scene{
         //filtre film TODO élève : faire une boucle à la place des 3 lignes qui suivent FAIT
         for (let i = 1; i <= 3; i++) {
             this.load.image('filterFilm' + i, 'assets/level/filters/bloody/frame' + i + '.png');
+        }
+
+        for (let i = 1; i <= 3; i++) {
+            this.load.image('filterRain' + i, 'assets/level/weather/rain/frame' + i + '.png');
         }
 
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple FAIT
@@ -84,6 +93,11 @@ class Tableau1 extends Phaser.Scene{
         this.bg2Container.add(bg2Tree2);
         bg2Tree2.angle=-5; //pencher l'arbre de -5 degrès
 
+        let bg2Terrain4=this.add.image(500,140, 'bg2-terrain-4').setOrigin(0,0);
+        this.bg2Container.add(bg2Terrain4);
+
+        
+
         //--------------background 1 (gris) --------------------
 
         /**
@@ -98,7 +112,40 @@ class Tableau1 extends Phaser.Scene{
         let bg1Terrain3=this.add.image(-465,180, 'bg1-terrain-3').setOrigin(0,0);
         this.bg1Container.add(bg1Terrain3);
 
-        
+        let bg1Terrain1=this.add.image(600,270, 'bg1-terrain-1').setOrigin(0,0);
+        this.bg1Container.add(bg1Terrain1);
+        bg1Terrain1.scaleX=0.4
+        bg1Terrain1.scaleY=0.6
+
+        let bg1Terrain4=this.add.image(950,240, 'bg1-terrain-4').setOrigin(0,0);
+        this.bg1Container.add(bg1Terrain4);
+        bg1Terrain4.scale=0.8
+
+        let bgtree1=this.add.image(150,-120, 'bg1-tree-3').setOrigin(0,0);
+        this.bg1Container.add(bgtree1);
+        bgtree1.scale= 0.6
+
+        let bgtree2=this.add.image(-25,-45, 'bg1-tree-1').setOrigin(0,0);
+        this.bg1Container.add(bgtree2);
+        bgtree2.scale= 0.6
+
+        let bgtree3=this.add.image(650,-10, 'bg1-tree-3').setOrigin(0,0);
+        this.bg1Container.add(bgtree3);
+        bgtree3.scale=0.6
+
+        let bgtree4=this.add.image(1300,-10, 'bg1-tree-2').setOrigin(0,0);
+        this.bg1Container.add(bgtree4);
+        bgtree4.scaleX=0.6
+        bgtree4.scaleY=1
+
+        let bgtree5=this.add.image(1180,-10, 'bg1-tree-2').setOrigin(0,0);
+        this.bg1Container.add(bgtree5);
+        bgtree5.scale=0.6
+        bgtree5.scaleY=1
+
+        let wb=this.add.image(770,240, 'bg1-wb').setOrigin(0,0);
+        this.bg1Container.add(wb);
+        wb.scale= 1
 
         //-------------ground (premier plan noir)---------------------------
 
@@ -321,6 +368,48 @@ class Tableau1 extends Phaser.Scene{
             repeat: -1
         });
         this.filterFilm.play('film');
+
+        this.filterRain = this.add.sprite(0, 0, 'filterRain1').setOrigin(0,0);
+        //animation de 3 images
+        this.anims.create({
+            key: 'rain',
+            frames: [
+                {key:'filterRain1'},
+                {key:'filterRain2'},
+                {key:'filterRain3'},
+            ],
+            frameRate: 16,
+            repeat: -1
+        });
+        this.filterRain.play('rain');
+
+        this.filterRain = this.add.sprite(900, 0, 'filterRain1').setOrigin(0,0);
+        //animation de 3 images
+        this.anims.create({
+            key: 'rain',
+            frames: [
+                {key:'filterRain1'},
+                {key:'filterRain2'},
+                {key:'filterRain3'},
+            ],
+            frameRate: 16,
+            repeat: -1
+        });
+        this.filterRain.play('rain');
+
+        this.filterRain = this.add.sprite(1800, 0, 'filterRain1').setOrigin(0,0);
+        //animation de 3 images
+        this.anims.create({
+            key: 'rain',
+            frames: [
+                {key:'filterRain1'},
+                {key:'filterRain2'},
+                {key:'filterRain3'},
+            ],
+            frameRate: 16,
+            repeat: -1
+        });
+        this.filterRain.play('rain');
 
         //TODO élève faire une animation du même genre que filter mais pour bgAnimation1
 
