@@ -110,7 +110,7 @@ class Tableau1 extends Phaser.Scene{
         tree2.scaleX=-0.9
         tree2.scaleY=1
 
-        let champ=this.add.image(150,440, 'gchampi1').setOrigin(0,1);
+        let champ=this.add.image(195,415, 'gchampi1').setOrigin(0,1);
         /**tree2.setTintFill(0xFF0000); // pratique pour dbugger*/
         this.groundContainer.add(champ);
         champ.angle=-1
