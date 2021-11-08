@@ -96,7 +96,12 @@ class Tableau1 extends Phaser.Scene{
         let bg2Terrain4=this.add.image(500,140, 'bg2-terrain-4').setOrigin(0,0);
         this.bg2Container.add(bg2Terrain4);
 
-        
+        let bg2Tree3=this.add.image(930,-50, 'bg2-tree-2').setOrigin(0,0);
+        this.bg2Container.add(bg2Tree3);
+        bg2Tree3.scaleX=-1
+
+        let bg2Tree4=this.add.image(1050,-50, 'bg2-tree-2').setOrigin(0,0);
+        this.bg2Container.add(bg2Tree4);
 
         //--------------background 1 (gris) --------------------
 
@@ -319,6 +324,10 @@ class Tableau1 extends Phaser.Scene{
         spike2.angle=0
         spike2.scaleX=1
         spike2.scaleY=1
+
+        
+
+
 
         /**
          * Terrain 1
