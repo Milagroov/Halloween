@@ -13,12 +13,20 @@ class Tableau1 extends Phaser.Scene{
 
         //bg 1 (gris légèrement flou)
         this.load.image('bg1-terrain-3', 'assets/level/background-1/bg-terrain-3.png');
+        this.load.image('bg1-tree-3', 'assets/level/background-1/bg-tree-3.png');
+        this.load.image('bg1-tree-1', 'assets/level/background-1/bg-tree-1.png');
 
         //ground (premier plan noir)
         this.load.image('gMid', 'assets/level/ground/g-mid.png');
         this.load.image('gRight', 'assets/level/ground/g-right.png');
         this.load.image('gTree2', 'assets/level/ground/g-tree-2.png');
         this.load.image('gchampi1', 'assets/level/ground/g-mushroom1.png');
+        this.load.image('gstone1', 'assets/level/ground/g-stone-1.png');
+        this.load.image('gbridge1', 'assets/level/ground/g-wooden-bridge.png');
+        this.load.image('gwater', 'assets/level/ground/g-water.png');
+        this.load.image('gbox2', 'assets/level/ground/g-box-2.png');
+        this.load.image('gleft', 'assets/level/ground/g-left.png');
+
 
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
@@ -61,7 +69,7 @@ class Tableau1 extends Phaser.Scene{
          * Terrain dans bg2
          * @type {Phaser.GameObjects.Image}
          */
-        let bg2Terrain2=this.add.image(-100,100, 'bg2-terrain-2').setOrigin(0,0);
+        let bg2Terrain2=this.add.image(-170,90, 'bg2-terrain-2').setOrigin(0,0);
         this.bg2Container.add(bg2Terrain2);
         /**
          * Arbre dans bg2
@@ -82,7 +90,7 @@ class Tableau1 extends Phaser.Scene{
          * Terrain
          * @type {Phaser.GameObjects.Image}
          */
-        let bg1Terrain3=this.add.image(-300,200, 'bg1-terrain-3').setOrigin(0,0);
+        let bg1Terrain3=this.add.image(-465,180, 'bg1-terrain-3').setOrigin(0,0);
         this.bg1Container.add(bg1Terrain3);
 
         //-------------ground (premier plan noir)---------------------------
@@ -110,19 +118,46 @@ class Tableau1 extends Phaser.Scene{
         tree2.scaleX=-0.9
         tree2.scaleY=1
 
-        let champ=this.add.image(195,415, 'gchampi1').setOrigin(0,1);
-        /**tree2.setTintFill(0xFF0000); // pratique pour dbugger*/
+        let champ=this.add.image(220,365, 'gchampi1').setOrigin(0,1);
         this.groundContainer.add(champ);
-        champ.angle=-1
-        champ.scaleX=-0.9
+        champ.angle=0
+        champ.scaleX=-1
         champ.scaleY=1
+
+        let stoneleft=this.add.image(423,360, 'gstone1').setOrigin(0,1);
+        this.groundContainer.add(stoneleft);
+        stoneleft.angle=0
+        stoneleft.scaleX=-1.3
+        stoneleft.scaleY=1.7
+
+        let box=this.add.image(494,349, 'gbox2').setOrigin(0,1);
+        this.groundContainer.add(box);
+        box.angle=4
+        box.scale=0.7
+
+        let bridge=this.add.image(390,390, 'gbridge1').setOrigin(0,1);
+        this.groundContainer.add(bridge);
+        bridge.angle=0
+        bridge.scale=0.9
+
+        let water=this.add.image(390,630, 'gwater').setOrigin(0,1);
+        this.groundContainer.add(water);
+        water.angle=0
+        water.scaleX=1.5
+
+        let landleft=this.add.image(800,772, 'gleft').setOrigin(0,1);
+        this.groundContainer.add(landleft);
+        landleft.angle=0
+        landleft.scaleX=1
+        landleft.scaleY=1
+
 
         /**
          * Terrain 1
          * @type {Phaser.GameObjects.Image}
          */
         //ici on va calculer les positions
-        let gMid1=this.add.image(0,350, 'gMid').setOrigin(0,0);
+        let gMid1=this.add.image(-180,350, 'gMid').setOrigin(0,0);
         this.groundContainer.add(gMid1);
         /**
          * Terrain 2
@@ -177,7 +212,7 @@ class Tableau1 extends Phaser.Scene{
         //initialise ce qui se passe avec le clavier
         this.initKeyboard();
         // Définit l'espace de déplacement de la caméra
-        this.cameras.main.setBounds(0, 0, 2000, 540);
+        this.cameras.main.setBounds(0, 0, 1300, 540);
         //définit à quelles vitesse se déplacent nos différents plans
         bgAnimation1.scrollFactorX=0;
         this.filterFilm.scrollFactorX=0;
