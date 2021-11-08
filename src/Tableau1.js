@@ -26,6 +26,11 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('gwater', 'assets/level/ground/g-water.png');
         this.load.image('gbox2', 'assets/level/ground/g-box-2.png');
         this.load.image('gleft', 'assets/level/ground/g-left.png');
+        this.load.image('gstone4', 'assets/level/ground/g-stone-4.png');
+        this.load.image('gTree1', 'assets/level/ground/g-tree-1.png');
+        this.load.image('gstone5', 'assets/level/ground/g-stone-5.png');
+        this.load.image('gfellentree1', 'assets/level/ground/g-fellen-tree-1.png');
+        this.load.image('gspike1', 'assets/level/ground/g-spike-1.png');
 
 
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
@@ -36,7 +41,7 @@ class Tableau1 extends Phaser.Scene{
 
         //filtre film TODO élève : faire une boucle à la place des 3 lignes qui suivent FAIT
         for (let i = 1; i <= 3; i++) {
-            this.load.image('filterFilm' + i, 'assets/level/filters/film/frame-' + i + '.png');
+            this.load.image('filterFilm' + i, 'assets/level/filters/bloody/frame' + i + '.png');
         }
 
         //texture au fond  TODO élève : faire une boucle pour charger les 3 images et démontrer par la même que vous savez aller au plus simple FAIT
@@ -93,6 +98,8 @@ class Tableau1 extends Phaser.Scene{
         let bg1Terrain3=this.add.image(-465,180, 'bg1-terrain-3').setOrigin(0,0);
         this.bg1Container.add(bg1Terrain3);
 
+        
+
         //-------------ground (premier plan noir)---------------------------
 
         /**
@@ -124,11 +131,11 @@ class Tableau1 extends Phaser.Scene{
         champ.scaleX=-1
         champ.scaleY=1
 
-        let stoneleft=this.add.image(423,360, 'gstone1').setOrigin(0,1);
-        this.groundContainer.add(stoneleft);
-        stoneleft.angle=0
-        stoneleft.scaleX=-1.3
-        stoneleft.scaleY=1.7
+        let stone1=this.add.image(423,360, 'gstone1').setOrigin(0,1);
+        this.groundContainer.add(stone1);
+        stone1.angle=0
+        stone1.scaleX=-1.3
+        stone1.scaleY=1.7
 
         let box=this.add.image(494,349, 'gbox2').setOrigin(0,1);
         this.groundContainer.add(box);
@@ -151,6 +158,120 @@ class Tableau1 extends Phaser.Scene{
         landleft.scaleX=1
         landleft.scaleY=1
 
+        let stone4=this.add.image(815,400, 'gstone4').setOrigin(0,1);
+        this.groundContainer.add(stone4);
+        stone4.angle=0
+        stone4.scale=1
+
+        let mid2=this.add.image(1000,772, 'gMid').setOrigin(0,1);
+        this.groundContainer.add(mid2);
+        mid2.angle=0
+        mid2.scaleX=2.7
+
+        let tree3=this.add.image(1010,390, 'gTree1').setOrigin(0,1);
+        /**tree1.setTintFill(0xFF0000); // pratique pour dbugger*/
+        this.groundContainer.add(tree3);
+        tree3.angle=-7
+        tree3.scaleX=-1
+        tree3.scaleY=0.9
+
+        let stone5=this.add.image(1080,400, 'gstone5').setOrigin(0,1);
+        this.groundContainer.add(stone5);
+        stone5.angle=0
+        stone5.scale=1.3
+
+        let tree4=this.add.image(1105,390, 'gTree2').setOrigin(0,1);
+        this.groundContainer.add(tree4);
+        tree4.angle=0
+        tree4.scaleX=0.7
+        tree4.scaleY=0.7
+
+        let landright=this.add.image(1380,772, 'gRight').setOrigin(0,1);
+        this.groundContainer.add(landright);
+        landright.angle=0
+        landright.scaleX=1
+        landright.scaleY=1
+
+        let champ2=this.add.image(1400,402, 'gchampi1').setOrigin(0,1);
+        this.groundContainer.add(champ2);
+        champ2.angle=0
+        champ2.scale=0.6
+
+        let landleft2=this.add.image(1920,800, 'gleft').setOrigin(0,1);
+        this.groundContainer.add(landleft2);
+        landleft2.angle=0
+        landleft2.scaleX=1
+        landleft2.scaleY=1
+
+        let fellentree1=this.add.image(1520,394, 'gfellentree1').setOrigin(0,1);
+        this.groundContainer.add(fellentree1);
+        fellentree1.angle=5
+        fellentree1.scaleX=1
+        fellentree1.scaleY=1
+
+        let herbe1=this.add.image(1060,400, 'g-grass-2').setOrigin(0,1);
+        this.groundContainer.add(herbe1);
+        herbe1.angle=0
+        herbe1.scaleX=1
+        herbe1.scaleY=1
+
+        let herbe2=this.add.image(1090,394, 'g-grass-4').setOrigin(0,1);
+        this.groundContainer.add(herbe2);
+        herbe2.angle=0
+        herbe2.scaleX=1
+        herbe2.scaleY=1
+
+        let herbe3=this.add.image(1350,410, 'g-grass-2').setOrigin(0,1);
+        this.groundContainer.add(herbe3);
+        herbe3.angle=0
+        herbe3.scaleX=1
+        herbe3.scaleY=1
+
+        let herbe4=this.add.image(1460,410, 'g-grass-4').setOrigin(0,1);
+        this.groundContainer.add(herbe4);
+        herbe4.angle=0
+        herbe4.scaleX=1
+        herbe4.scaleY=1
+
+        let herbe5=this.add.image(1990,430, 'g-grass-1').setOrigin(0,1);
+        this.groundContainer.add(herbe5);
+        herbe5.angle=0
+        herbe5.scaleX=0.8
+        herbe5.scaleY=0.8
+
+        let herbe6=this.add.image(805,410, 'g-grass-2').setOrigin(0,1);
+        this.groundContainer.add(herbe6);
+        herbe6.angle=0
+        herbe6.scaleX=0.8
+        herbe6.scaleY=0.8
+
+        let herbe7=this.add.image(890,410, 'g-grass-5').setOrigin(0,1);
+        this.groundContainer.add(herbe7);
+        herbe7.angle=0
+        herbe7.scaleX=1.5
+        herbe7.scaleY=1
+
+        let herbe8=this.add.image(410,620, 'g-grass-4').setOrigin(0,1);
+        this.groundContainer.add(herbe8);
+        herbe8.angle=0
+        herbe8.scale=3
+
+        let herbe10=this.add.image(600,620, 'g-grass-4').setOrigin(0,1);
+        this.groundContainer.add(herbe10);
+        herbe10.angle=0
+        herbe10.scale=3
+
+        let spike1=this.add.image(1500,550, 'gspike1').setOrigin(0,1);
+        this.groundContainer.add(spike1);
+        spike1.angle=0
+        spike1.scaleX=1
+        spike1.scaleY=1.6
+
+        let spike2=this.add.image(1725,550, 'gspike1').setOrigin(0,1);
+        this.groundContainer.add(spike2);
+        spike2.angle=0
+        spike2.scaleX=1
+        spike2.scaleY=1
 
         /**
          * Terrain 1
@@ -212,7 +333,7 @@ class Tableau1 extends Phaser.Scene{
         //initialise ce qui se passe avec le clavier
         this.initKeyboard();
         // Définit l'espace de déplacement de la caméra
-        this.cameras.main.setBounds(0, 0, 1300, 540);
+        this.cameras.main.setBounds(0, 0, 2025, 540);
         //définit à quelles vitesse se déplacent nos différents plans
         bgAnimation1.scrollFactorX=0;
         this.filterFilm.scrollFactorX=0;
@@ -232,10 +353,10 @@ class Tableau1 extends Phaser.Scene{
             switch (kevent.keyCode)
             {
                 case Phaser.Input.Keyboard.KeyCodes.RIGHT:
-                    me.speed=1;
+                    me.speed=6;
                     break;
                 case Phaser.Input.Keyboard.KeyCodes.LEFT:
-                    me.speed=-1;
+                    me.speed=-6;
                     break;
             }
         });
