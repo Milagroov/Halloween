@@ -356,6 +356,76 @@ class Tableau1 extends Phaser.Scene{
         vine3.angle=0
         vine3.scale=0.6
 
+        let vine4=this.add.image(530,25, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine4);
+        vine4.angle=0
+        vine4.scale=0.6
+
+        let vine5=this.add.image(530,50, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine5);
+        vine5.angle=0
+        vine5.scale=0.6
+
+        let vine6=this.add.image(530,75, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine6);
+        vine6.angle=0
+        vine6.scale=0.6
+
+        let vine7=this.add.image(530,100, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine7);
+        vine7.angle=0
+        vine7.scale=0.6
+
+        let vine8=this.add.image(528,125, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine8);
+        vine8.angle=5
+        vine8.scale=0.6
+
+        let vine9=this.add.image(531,150, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine9);
+        vine9.angle=-5
+        vine9.scale=0.6
+
+        let vine10=this.add.image(528,175, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine10);
+        vine10.angle=5
+        vine10.scale=0.6
+
+        let vine11=this.add.image(1950,25, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine11);
+        vine11.angle=0
+        vine11.scale=0.6
+
+        let vine12=this.add.image(1950,50, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine12);
+        vine12.angle=0
+        vine12.scale=0.6
+
+        let vine13=this.add.image(1950,75, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine13);
+        vine13.angle=0
+        vine13.scale=0.6
+
+        let vine14=this.add.image(1950,100, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine14);
+        vine14.angle=0
+        vine14.scale=0.6
+
+        let vine15=this.add.image(1948,125, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine15);
+        vine15.angle=5
+        vine15.scale=0.6
+
+        let vine16=this.add.image(1949.25,150, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine16);
+        vine16.angle=0
+        vine16.scale=0.6
+
+        let vine17=this.add.image(1947.25,175, 'vina').setOrigin(0,1);
+        this.groundContainer.add(vine17);
+        vine17.angle=5
+        vine17.scale=0.6
+
         /**
          * Terrain 1
          * @type {Phaser.GameObjects.Image}
