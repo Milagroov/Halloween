@@ -42,6 +42,12 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('z9','assets/zombies/z9.png');
         this.load.image('z11','assets/zombies/z11.png');
 
+        this.load.image('z11','assets/Characters/trap 1/PNG/idle/Layer-1.png');
+
+        this.load.image('z11','assets/Characters/trap 1/PNG/close/Layer-1.png');
+        this.load.image('z11','assets/Characters/trap 1/PNG/close/Layer-2.png');
+        this.load.image('z11','assets/Characters/trap 1/PNG/close/Layer-3.png');
+
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
         for (let i = 1; i <= 5; i++) {
