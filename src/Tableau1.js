@@ -42,11 +42,17 @@ class Tableau1 extends Phaser.Scene{
         this.load.image('z9','assets/zombies/z9.png');
         this.load.image('z11','assets/zombies/z11.png');
 
-        this.load.image('z11','assets/Characters/trap 1/PNG/idle/Layer-1.png');
+        this.load.image('trap1idle','assets/Characters/trap 1/PNG/idle/Layer-1.png');
 
-        this.load.image('z11','assets/Characters/trap 1/PNG/close/Layer-1.png');
-        this.load.image('z11','assets/Characters/trap 1/PNG/close/Layer-2.png');
-        this.load.image('z11','assets/Characters/trap 1/PNG/close/Layer-3.png');
+        this.load.image('trap1close1','assets/Characters/trap 1/PNG/close/Layer-1.png');
+        this.load.image('trap1close2','assets/Characters/trap 1/PNG/close/Layer-2.png');
+        this.load.image('trap1close3','assets/Characters/trap 1/PNG/close/Layer-3.png');
+
+        this.load.image('trap1open1','assets/Characters/trap 1/PNG/open/Layer-1.png');
+        this.load.image('trap1open2','assets/Characters/trap 1/PNG/open/Layer-2.png');
+        this.load.image('trap1open3','assets/Characters/trap 1/PNG/open/Layer-3.png');
+        this.load.image('trap1open4','assets/Characters/trap 1/PNG/open/Layer-4.png');
+        this.load.image('trap1open5','assets/Characters/trap 1/PNG/open/Layer-5.png');
 
         //au lieu d'écrire 5 lignes quasi identiques, on charge l'herbe avec une boucle
         // ALGO : ceci est une boucle
@@ -471,15 +477,29 @@ class Tableau1 extends Phaser.Scene{
         //animation de 3 images
         this.anims.create({
             key: 'film',
-            frames: [
-                {key:'filterFilm1'},
-                {key:'filterFilm2'},
-                {key:'filterFilm3'},
-            ],
+            frames: this.getFrames("filterFilm",3),
             frameRate: 16,
             repeat: -1
         });
         this.filterFilm.play('film');
+
+        this.trap1close = this.add.sprite(200, 100, 'trap1close1').setOrigin(0,0);
+        //animation de 3 images
+        this.anims.create({
+            key: 'trap1closeanim',
+            frames: this.getFrames("trap1close",3),
+            frameRate: 16,
+            repeat: 0
+        });
+
+        //animation de 3 images
+        this.anims.create({
+            key: 'trap1openanim',
+            frames: this.getFrames("trap1open",5),
+            frameRate: 16,
+            repeat: 0
+        });
+
 
         this.filterRain = this.add.sprite(0, 0, 'filterRain1').setOrigin(0,0);
         //animation de 3 images
@@ -559,6 +579,12 @@ class Tableau1 extends Phaser.Scene{
                 case Phaser.Input.Keyboard.KeyCodes.LEFT:
                     me.speed=-4;
                     break;
+                case Phaser.Input.Keyboard.KeyCodes.UP:
+                    me.trap1close.play('trap1closeanim');
+                    break;
+                case Phaser.Input.Keyboard.KeyCodes.DOWN:
+                    me.trap1close.play('trap1openanim');
+                    break;
             }
         });
         this.input.keyboard.on('keyup', function(kevent)
@@ -568,6 +594,7 @@ class Tableau1 extends Phaser.Scene{
                 case Phaser.Input.Keyboard.KeyCodes.RIGHT:
                 case Phaser.Input.Keyboard.KeyCodes.LEFT:
                     me.speed=0;
+
                     break;
             }
         });
@@ -584,5 +611,17 @@ class Tableau1 extends Phaser.Scene{
         this.filterFilm.setAlpha(Phaser.Math.Between(95,100)/100)
     }
 
-
+    /**
+     * Renvoie un tableau d'images
+     * @param prefix
+     * @param length
+     * @returns {*[]}
+     */
+    getFrames(prefix,length){
+        let frames=[];
+        for (let i=1;i<=length;i++){
+            frames.push({key: prefix+i});
+        }
+        return frames;
+    }
 }
